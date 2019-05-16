@@ -3,9 +3,13 @@ package com.springcloud.eureka.consumer;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.cloud.netflix.eureka.EnableEurekaClient;
+import org.springframework.cloud.netflix.hystrix.EnableHystrix;
+import org.springframework.cloud.netflix.hystrix.dashboard.EnableHystrixDashboard;
 import org.springframework.cloud.openfeign.EnableFeignClients;
 
-@EnableFeignClients(basePackages={"com.springcloud.eureka.consumer", "com.springcloud.base.service"})
+@EnableHystrix
+@EnableHystrixDashboard
+@EnableFeignClients(basePackages={"com.springcloud.*"})
 @EnableEurekaClient
 @SpringBootApplication
 public class EurekaConsumer002Application {

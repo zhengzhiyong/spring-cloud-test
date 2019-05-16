@@ -19,3 +19,18 @@ zuul:
     zuul-web-002:
       path: /zw002/*
       url: http://192.168.23.242:5002/zw002/get
+    zuul-web-0002:
+      path: /zw0002/**
+      serviceId: zuul-web-002
+
+#    baidu:
+#      url: https://www.baidu.com
+#    simple:
+#      path: /simple/**
+#      url: http://www.163.com
+#    myForword:
+#      path: /mf/**
+#      url: forward:/sayHi
+#    legacy:
+#      path: /**
+#      url: https://www.toutiao.com

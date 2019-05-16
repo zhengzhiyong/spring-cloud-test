@@ -29,6 +29,7 @@
         <module>zuul-01</module>
         <module>zuul-web-001</module>
         <module>zuul-web-002</module>
+        <module>hystrix-provider-01</module>
     </modules>
 
 <!--    <dependencies>-->

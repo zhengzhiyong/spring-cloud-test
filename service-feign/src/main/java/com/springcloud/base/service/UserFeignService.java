@@ -10,9 +10,9 @@ import java.util.List;
 @FeignClient(value="USER-API")
 public interface UserFeignService {
 
-    @RequestMapping("/provider/user/get/{id}")
+    @RequestMapping("provider/user/get/{id}")
     User get(@PathVariable("id") Integer id);
 
-    @RequestMapping("/provider/user/list")
+    @RequestMapping("provider/user/list")
     List<User> getUserList();
 }
