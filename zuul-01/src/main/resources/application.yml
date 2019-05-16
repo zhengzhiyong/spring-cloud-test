@@ -1,0 +1,21 @@
+server:
+  port: 8888
+spring:
+  application:
+    name: zuul-01
+eureka:
+  instance:
+    instance-id: zuul-01
+    prefer-ip-address: true # 访问路径可以显示 IP
+  client:
+    service-url:
+      #            defaultZone: http://localhost:9000/eureka/  # 注册中心访问地址
+      defaultZone: http://eureka01:9001/eureka/,http://eureka02:9002/eureka/
+zuul:
+  routes:
+    zuul-web-001:
+      path: /zw001/*
+      url: http://192.168.23.242:5001/zw001/get
+    zuul-web-002:
+      path: /zw002/*
+      url: http://192.168.23.242:5002/zw002/get
