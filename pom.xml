@@ -18,7 +18,7 @@
 
     <modules>
         <module>base-common</module>
-        <module>base-common-002</module>
+        <module>service-feign</module>
         <module>eureka-01</module>
         <module>eureka-02</module>
         <module>eureka-consumer-01</module>

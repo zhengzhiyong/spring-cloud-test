@@ -9,7 +9,7 @@
     </parent>
     <modelVersion>4.0.0</modelVersion>
 
-    <artifactId>base-common-002</artifactId>
+    <artifactId>service-feign</artifactId>
     <dependencies>
         <dependency>
             <groupId>org.springframework.cloud</groupId>

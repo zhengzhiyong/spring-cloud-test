@@ -1,27 +1,31 @@
 package com.springcloud.eureka.provider.service.impl;
 
-import com.springcloud.base.common.po.User;
+import com.springcloud.base.common.SCTCommon;
+import com.springcloud.base.po.User;
 import com.springcloud.eureka.provider.service.UserService;
 import org.springframework.stereotype.Service;
 
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 @Service
 public class UserServiceImpl implements UserService {
-	
-	private static Map<Integer, User> map;
-	
-	static {
-		map = new HashMap<>();
-		for (int i=1; i<6; i++) {
-			map.put(i, new User(i,"test" +i , "pwd" + i+"  port:"+ 8083));
-		}
+
+	protected List<User> userList(){
+		return SCTCommon.getUserList("8083");
 	}
 
 	@Override
 	public User getById(Integer id) {
-		return map.get(id);
+		int i = (id <= userList().size()-1) ? id : 0;
+		return userList().get(i);
 	}
+
+	@Override
+	public List<User> getUserList() {
+		return userList();
+	}
+
 
 }

@@ -30,7 +30,7 @@
         </dependency>
         <dependency>
             <groupId>com.springcloud</groupId>
-            <artifactId>base-common-0002</artifactId>
+            <artifactId>service-feign</artifactId>
             <version>1.0-SNAPSHOT</version>
         </dependency>
     </dependencies>

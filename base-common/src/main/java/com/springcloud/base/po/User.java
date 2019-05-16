@@ -1,4 +1,4 @@
-package com.springcloud.base.common.po;
+package com.springcloud.base.po;
 
 import java.io.Serializable;
 import java.util.Objects;
@@ -10,6 +10,8 @@ public class User implements Serializable {
     private String username;
 
     private String password;
+
+    private String port;
 
     public int getId() {
         return id;
@@ -35,15 +37,23 @@ public class User implements Serializable {
         this.password = password;
     }
 
+    public String getPort() {
+        return port;
+    }
+
+    public void setPort(String port) {
+        this.port = port;
+    }
+
     public User(){
 
     }
 
-    public User(int id, String username, String password) {
-        super();
+    public User(int id, String username, String password, String port) {
         this.id = id;
         this.username = username;
         this.password = password;
+        this.port = port;
     }
 
     @Override
@@ -53,12 +63,13 @@ public class User implements Serializable {
         User user = (User) o;
         return id == user.id &&
                 username.equals(user.username) &&
-                password.equals(user.password);
+                password.equals(user.password) &&
+                port.equals(user.port);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(id, username, password);
+        return Objects.hash(id, username, password, port);
     }
 
     @Override
@@ -67,6 +78,7 @@ public class User implements Serializable {
                 "id=" + id +
                 ", username='" + username + '\'' +
                 ", password='" + password + '\'' +
+                ", port='" + port + '\'' +
                 '}';
     }
 }

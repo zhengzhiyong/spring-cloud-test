@@ -1,11 +1,12 @@
 package com.springcloud.eureka.consumer.controller;
 
-import com.springcloud.base.common.po.User;
-import com.springcloud.base.common.service.UserFeignService;
+import com.springcloud.base.po.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
+
+import java.util.List;
 
 @RestController
 @RequestMapping("/user")
@@ -17,5 +18,11 @@ public class UserController {
     @RequestMapping("get/{id}")
     public User get(@PathVariable("id")Integer id){
         return this.userFeignService.get(id);
+    }
+
+
+    @RequestMapping("list")
+    public List<User> getUserList(){
+        return this.userFeignService.getUserList();
     }
 }

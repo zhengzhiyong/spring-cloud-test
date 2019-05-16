@@ -1,6 +1,6 @@
 package com.springcloud.eureka.consumer.controller;
 
-import com.springcloud.base.common.po.User;
+import com.springcloud.base.po.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.cloud.client.ServiceInstance;
 import org.springframework.cloud.client.discovery.DiscoveryClient;
@@ -19,7 +19,7 @@ public class UserController {
 
 	@RequestMapping("get{id}")
 	public User getUser(@PathVariable("id") Integer id){
-		return new User(1,"zhangsan"+id,"password"+id);
+		return new User(1,"zhangsan"+id,"password"+id,"8083");
 	}
 
     @Autowired
@@ -41,7 +41,7 @@ public class UserController {
 //        }catch (Exception e){
             //e.printStackTrace();
  //下面的错误需要在User对象中创建无参构造方法
-//            Caused by: com.fasterxml.jackson.databind.JsonMappingException: Can not construct instance of com.springcloud.base.common.po.User:
+//            Caused by: com.fasterxml.jackson.databind.JsonMappingException: Can not construct instance of com.springcloud.base.po.User:
 //            no suitable constructor found, can not deserialize from Object value (missing default constructor or creator, or perhaps need to add/enable type information?)
 //                at [Source: java.io.PushbackInputStream@13b10596; line: 1, column: 2]
 //        }
