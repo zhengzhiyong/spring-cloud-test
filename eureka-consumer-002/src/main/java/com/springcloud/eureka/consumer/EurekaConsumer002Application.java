@@ -11,7 +11,13 @@ import org.springframework.cloud.openfeign.EnableFeignClients;
 @EnableHystrixDashboard
 @EnableFeignClients(basePackages={"com.springcloud.*"})
 @EnableEurekaClient
-@SpringBootApplication
+@SpringBootApplication(scanBasePackages = {"com.springcloud.*"})
+/**
+ * Caused by: java.lang.IllegalStateException: No fallback instance of type class com.springcloud.base.component.HelloFeignServiceFallBack found for feign client SAY-HELLO
+ * 解决办法：
+ *    在 @SpringBootApplication 中 添加扫描包路径 scanBasePackages = {"com.springcloud.*"}
+ *
+ */
 public class EurekaConsumer002Application {
 
     public static void main(String[] args) {

@@ -9,7 +9,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 public class HelloFeignServiceFallBack implements HelloFeignService {
     @Override
     public String sayHello(String name) {
-        System.out.println("熔断，默认回调函数");
-        return "say hello to " + name + "failed";
+        return "say hello to " + name + " failed 熔断";
     }
 }
