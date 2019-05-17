@@ -1,0 +1,40 @@
+server:
+  port: 7777
+spring:
+  application:
+    name: gateway-api
+  cloud:
+    gateway:
+      discovery:
+        locator:
+          enabled: true
+      routes:
+        # 路由到示例项目的spring-cloud-producer模块
+        - id: route_iqy
+          uri: https://vip.iqiyi.com/
+          predicates:
+            - Path=/iqiyi/**
+          filters:
+            - StripPrefix=1
+          # 集成eureka注册中心的配置示例
+        - id: route_toutiao
+          uri: https://landing.toutiao.com/
+          predicates:
+            - Path=/toutiao/**
+          filters:
+            - StripPrefix=1
+          # 路由到百度页面
+        - id: baidu_route
+          uri: http://www.baidu.com
+          predicates:
+            - Path=/baidu/**
+          filters:
+            - StripPrefix=1
+eureka:
+  instance:
+    instance-id: gateway-api
+    prefer-ip-address: true # 访问路径可以显示 IP
+  client:
+    service-url:
+      #            defaultZone: http://localhost:9000/eureka/  # 注册中心访问地址
+      defaultZone: http://eureka01:9001/eureka/,http://eureka02:9002/eureka/
