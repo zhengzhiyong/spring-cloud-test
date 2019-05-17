@@ -9,28 +9,6 @@ import org.springframework.context.annotation.Configuration;
 public class GatewayRoutes {
 
     @Bean
-    public RouteLocator routeLocator(RouteLocatorBuilder builder){
-        return builder.routes()
-                .route(r -> r.path("/test/**")
-                        .filters(f -> f.stripPrefix(1))
-                        .uri("http://192.168.23.242:7001/gateway/get")
-                )
-                .build();
-    }
-
-    @Bean
-    public RouteLocator routeeureka01(RouteLocatorBuilder builder){
-        return builder.routes()
-                .route(r -> r.path("/eureka01/**")
-                        .filters(f -> f.stripPrefix(1))
-                        .uri("http://eureka01:9001/")
-                )
-                .build();
-    }
-
-
-
-    @Bean
     public RouteLocator route163(RouteLocatorBuilder builder){
         return builder.routes()
                .route(r -> r.path("/163/**")

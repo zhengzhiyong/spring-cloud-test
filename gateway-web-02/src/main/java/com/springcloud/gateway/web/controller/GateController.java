@@ -4,7 +4,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
-@RequestMapping("/gateway")
+@RequestMapping("/gateway02")
 public class GateController {
 
 	@RequestMapping("get")

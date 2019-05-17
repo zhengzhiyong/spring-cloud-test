@@ -30,6 +30,20 @@ spring:
             - Path=/baidu/**
           filters:
             - StripPrefix=1
+        # 路由到百度页面
+        - id: gw02_route
+          uri: http://127.0.0.1:7002/gateway02/get/
+          predicates:
+            - Path=/gt2/**
+          filters:
+            - StripPrefix=1
+#        # 路由到百度页面
+        - id: gw01_route
+          uri: http://127.0.0.1:7001/gateway01/get/
+          predicates:
+            - Path=/gt1/**
+          filters:
+            - StripPrefix=1
 eureka:
   instance:
     instance-id: gateway-api
